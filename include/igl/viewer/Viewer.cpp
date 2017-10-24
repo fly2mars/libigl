@@ -199,6 +199,8 @@ namespace viewer
 {
   IGL_INLINE void Viewer::init()
   {
+// Remove default init for nanogui 
+#ifdef ENABLE_DEFAULT_GUI	  
 #ifdef IGL_VIEWER_WITH_NANOGUI
     using namespace nanogui;
 
@@ -266,7 +268,7 @@ namespace viewer
     screen->setVisible(true);
     screen->performLayout();
 #endif
-
+#endif
     core.init();
 
     if (callback_init)
